@@ -1,0 +1,52 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'package:groceries_app_ui/constants/app_colors.dart';
+
+class GroceryCategoryCard extends StatelessWidget {
+  final String title;
+  final String image;
+  final Color color;
+
+  const GroceryCategoryCard({
+    super.key,
+    required this.title,
+    required this.image,
+    required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 220.w,
+      height: 100.h,
+      padding: EdgeInsets.all(12.w),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(15.r),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w600,
+                color: AppColors.black,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 70.h,
+            width: 70.w,
+            child: Image.asset(
+              image,
+              fit: BoxFit.contain,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
